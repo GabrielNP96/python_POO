@@ -2,27 +2,20 @@
 #deve ter 3 atributos: nome, artista e duração
 
 class Musica:
-    nome = ''
-    artista = ''
-    duracao = 00
+    musicas = []
+    def __init__(self, nome, artista, duracao: int):
+        self.nome = nome
+        self.artista = artista
+        self.duracao = duracao
+        self.musicas.append(self)
 
-lilian = Musica()
-lilian.nome = 'Lilian'
-lilian.artista = 'Insominium'
-lilian.duracao = 4.30
+    def mostrar_musicas():
+        for musica in Musica.musicas:
+            print(f'Nome: {musica.nome}\nArtista: {musica.artista}\nDuração: {musica.duracao}')
+            print(25 * '-')
 
-print(vars(lilian))
+lilian = Musica('Lilian', 'Insomninun', 4.29)
+first_in_line = Musica('First in line', 'Sonata Artica', 5.22)
+caverman = Musica('Caverman', 'Angra', 5.53)
 
-the_temple_of_hate = Musica()
-the_temple_of_hate.nome = 'The temple of hate'
-the_temple_of_hate.artista = 'Angra'
-the_temple_of_hate.duracao = 5.14
-
-print(vars(the_temple_of_hate))
-
-replica = Musica()
-replica.nome = 'Replica'
-replica.artista = 'Sonata Arctica'
-replica.duracao = 4.55
-
-print(vars(replica))
+Musica.mostrar_musicas()
